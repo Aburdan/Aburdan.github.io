@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammad Aburdan — AI Automation &amp; No-Code Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0E17;
+    --panel:#121A2B;
+    --panel-border:#232E45;
+    --teal:#3FE0C4;
+    --teal-dim:#1F5A50;
+    --amber:#F5A623;
+    --text:#F1F4F8;
+    --text-muted:#8592A6;
+    --grid-line:rgba(255,255,255,0.045);
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0;
+    background:var(--bg);
+    background-image:radial-gradient(circle, var(--grid-line) 1px, transparent 1px);
+    background-size:26px 26px;
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk', sans-serif;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .mono{
+    font-family:'JetBrains Mono', monospace;
+  }
+  a{color:inherit;}
+  :focus-visible{
+    outline:2px solid var(--teal);
+    outline-offset:3px;
+  }
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(10,14,23,0.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--panel-border);
+  }
+  .nav-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:16px 28px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:15px;
+    text-decoration:none;
+  }
+  .brand-mark{
+    width:30px;height:30px;
+    border-radius:50%;
+    border:1.5px solid var(--teal);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--teal);
+  }
+  .nav-links{
+    display:flex;
+    gap:28px;
+    list-style:none;
+    margin:0;padding:0;
+  }
+  .nav-links a{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    text-decoration:none;
+    color:var(--text-muted);
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    transition:color 0.2s;
+  }
+  .nav-links a:hover{color:var(--teal);}
+  @media (max-width:640px){ .nav-links{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:88px 0 96px;
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:40px;
+    align-items:center;
+  }
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr; padding:56px 0 64px;}
+  }
+  .status-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.04em;
+    color:var(--teal);
+    background:rgba(63,224,196,0.08);
+    border:1px solid var(--teal-dim);
+    padding:6px 12px;
+    border-radius:20px;
+    margin-bottom:24px;
+  }
+  .status-dot{
+    width:7px;height:7px;
+    border-radius:50%;
+    background:var(--teal);
+    box-shadow:0 0 0 0 rgba(63,224,196,0.6);
+    animation:pulse 2.2s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(63,224,196,0.55);}
+    70%{box-shadow:0 0 0 8px rgba(63,224,196,0);}
+    100%{box-shadow:0 0 0 0 rgba(63,224,196,0);}
+  }
+  .hero h1{
+    font-size:clamp(34px, 5.5vw, 54px);
+    font-weight:700;
+    margin-bottom:10px;
+  }
+  .hero-role{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:clamp(16px,2.4vw,20px);
+    color:var(--teal);
+    font-weight:500;
+    margin-bottom:20px;
+  }
+  .hero p.lede{
+    color:var(--text-muted);
+    font-size:16px;
+    max-width:46ch;
+    margin-bottom:32px;
+  }
+  .cta-row{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    text-decoration:none;
+    padding:13px 22px;
+    border-radius:8px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    transition:transform 0.15s, background 0.15s, border-color 0.15s;
+  }
+  .btn-primary{
+    background:var(--teal);
+    color:#06110F;
+    font-weight:500;
+    border:1px solid var(--teal);
+  }
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-ghost{
+    border:1px solid var(--panel-border);
+    color:var(--text);
+  }
+  .btn-ghost:hover{border-color:var(--teal); color:var(--teal);}
+
+  /* ---------- HERO DIAGRAM ---------- */
+  .diagram-box{
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-radius:16px;
+    padding:26px 20px;
+  }
+  .diagram-box svg{width:100%;height:auto;display:block;}
+  .node-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    fill:var(--text-muted);
+    letter-spacing:0.02em;
+  }
+  .node-circle{fill:var(--panel); stroke:var(--panel-border); stroke-width:1.5;}
+  .node-circle.active{stroke:var(--teal);}
+  .node-dot{fill:var(--teal);}
+  .flow-path{
+    fill:none;
+    stroke:var(--panel-border);
+    stroke-width:1.5;
+  }
+  .flow-path.draw{
+    stroke:var(--teal);
+    stroke-dasharray:220;
+    stroke-dashoffset:220;
+    animation:draw 1.6s ease forwards 0.3s;
+  }
+  @keyframes draw{ to{stroke-dashoffset:0;} }
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:72px 0;border-top:1px solid var(--panel-border);}
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.12em;
+    color:var(--amber);
+    text-transform:uppercase;
+    margin-bottom:14px;
+    display:block;
+  }
+  .section-head{max-width:56ch; margin-bottom:40px;}
+  .section-head h2{font-size:clamp(24px,3.4vw,32px); margin-bottom:14px;}
+  .section-head p{color:var(--text-muted); font-size:15.5px;}
+
+  .reveal{
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* tags row in profile */
+  .fact-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:28px;}
+  .fact{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--text-muted);
+    border:1px solid var(--panel-border);
+    border-radius:7px;
+    padding:7px 12px;
+  }
+  .fact b{color:var(--text); font-weight:500;}
+
+  /* ---------- PROJECT CARDS ---------- */
+  .project-grid{display:grid; gap:20px;}
+  .project-card{
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-radius:14px;
+    padding:28px;
+  }
+  .project-card.pending{border-style:dashed;}
+  .proj-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; flex-wrap:wrap; gap:10px;}
+  .proj-status{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:0.04em;
+    padding:4px 10px;
+    border-radius:20px;
+  }
+  .proj-status.live{color:var(--teal); background:rgba(63,224,196,0.08); border:1px solid var(--teal-dim);}
+  .proj-status.wip{color:var(--amber); background:rgba(245,166,35,0.08); border:1px solid rgba(245,166,35,0.35);}
+  .project-card h3{font-size:20px; margin-bottom:12px;}
+  .project-card p{color:var(--text-muted); font-size:15px; margin-bottom:20px;}
+
+  .flow-strip{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:0;
+    margin-bottom:20px;
+  }
+  .flow-node{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px;
+    background:rgba(255,255,255,0.03);
+    border:1px solid var(--panel-border);
+    border-radius:20px;
+    padding:7px 13px;
+    color:var(--text);
+    white-space:nowrap;
+  }
+  .flow-arrow{
+    color:var(--text-muted);
+    padding:0 10px;
+    font-size:14px;
+  }
+  .proj-link{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    color:var(--teal);
+    text-decoration:none;
+    border-bottom:1px solid var(--teal-dim);
+    padding-bottom:2px;
+  }
+  .proj-link:hover{border-color:var(--teal);}
+
+  /* ---------- SKILLS ---------- */
+  .skill-group{margin-bottom:26px;}
+  .skill-group-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px;
+    color:var(--text-muted);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    margin-bottom:12px;
+    display:block;
+  }
+  .tag-row{display:flex; flex-wrap:wrap; gap:9px;}
+  .tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    padding:8px 14px;
+    border-radius:8px;
+    border:1px solid var(--panel-border);
+    background:var(--panel);
+  }
+
+  /* ---------- LANGUAGES ---------- */
+  .lang-row{display:flex; align-items:center; gap:16px; margin-bottom:14px;}
+  .lang-name{width:110px; font-size:14.5px; flex-shrink:0;}
+  .lang-bar-track{flex:1; height:6px; background:var(--panel); border-radius:4px; overflow:hidden;}
+  .lang-bar-fill{height:100%; background:var(--teal); border-radius:4px;}
+  .lang-level{font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--text-muted); width:70px; text-align:right; flex-shrink:0;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-box{
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-radius:18px;
+    padding:48px 36px;
+    text-align:center;
+  }
+  .contact-box h2{font-size:clamp(22px,3.4vw,30px); margin-bottom:16px;}
+  .contact-box p{color:var(--text-muted); margin-bottom:28px;}
+  .contact-links{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+
+  footer{
+    text-align:center;
+    padding:32px 0 40px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--text-muted);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="brand"><span class="brand-mark">MA</span> Mohammad Aburdan</a>
+    <ul class="nav-links">
+      <li><a href="#profil">Profil</a></li>
+      <li><a href="#projekte">Projekte</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="wrap" id="top">
+  <section class="hero" style="border-top:none;">
+    <div>
+      <span class="status-pill"><span class="status-dot"></span> STATUS: VERFÜGBAR AB SOFORT</span>
+      <h1>Mohammad Aburdan</h1>
+      <div class="hero-role">AI Automation &amp; No-Code Specialist</div>
+      <p class="lede">Ich verbinde KI-Tools mit echten Geschäftsprozessen — Workflow für Workflow, Trigger für Trigger. Aus Köln, für Unternehmen in ganz Deutschland.</p>
+      <div class="cta-row">
+        <a href="#projekte" class="btn btn-primary">Projekt ansehen →</a>
+        <a href="https://github.com/Aburdan" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+      </div>
+    </div>
+    <div class="diagram-box" aria-hidden="true">
+      <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+        <path class="flow-path draw" d="M55,55 C90,55 90,55 120,55"></path>
+        <path class="flow-path draw" d="M175,55 C205,55 205,55 235,55"></path>
+        <path class="flow-path draw" d="M55,55 C55,95 55,95 55,135"></path>
+        <path class="flow-path draw" d="M235,55 C235,95 235,95 235,135"></path>
+        <path class="flow-path draw" d="M55,135 C90,135 90,165 145,165"></path>
+        <path class="flow-path draw" d="M235,135 C200,135 200,165 145,165"></path>
+
+        <circle class="node-circle active" cx="55" cy="55" r="26"></circle>
+        <text x="55" y="59" text-anchor="middle" class="node-label">TRIGGER</text>
+
+        <circle class="node-circle" cx="147" cy="55" r="26"></circle>
+        <text x="147" y="59" text-anchor="middle" class="node-label">KI</text>
+
+        <circle class="node-circle" cx="235" cy="55" r="26"></circle>
+        <text x="235" y="59" text-anchor="middle" class="node-label">ACTION</text>
+
+        <circle class="node-circle" cx="55" cy="135" r="24"></circle>
+        <text x="55" y="139" text-anchor="middle" class="node-label" style="font-size:9px;">n8n</text>
+
+        <circle class="node-circle" cx="235" cy="135" r="24"></circle>
+        <text x="235" y="139" text-anchor="middle" class="node-label" style="font-size:9px;">GPT</text>
+
+        <circle class="node-circle active" cx="145" cy="175" r="28"></circle>
+        <text x="145" y="172" text-anchor="middle" class="node-label" style="fill:var(--teal);">STATUS</text>
+        <text x="145" y="184" text-anchor="middle" class="node-label" style="fill:var(--teal); font-size:9px;">DONE ✓</text>
+      </svg>
+    </div>
+  </section>
+</div>
+
+<section id="profil">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Profil</span>
+      <h2>Vom ersten Trigger zum fertigen Workflow</h2>
+      <p>Motiviert, praxisorientiert und mit einer klaren Überzeugung: Automatisierung entsteht nicht aus Theorie, sondern aus dem Bauen echter Workflows. Ich verbinde KI-Tools wie ChatGPT mit realen Geschäftsprozessen und optimiere Abläufe über No-Code- und Low-Code-Ansätze — praktisch, iterativ, ergebnisorientiert.</p>
+      <div class="fact-row">
+        <span class="fact">Standort: <b>Köln, Deutschland</b></span>
+        <span class="fact">Sprachen: <b>AR · EN · DE</b></span>
+        <span class="fact">Fokus: <b>n8n · KI-Workflows</b></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projekte">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Projekte</span>
+      <h2>Was ich gebaut habe</h2>
+      <p>Kein Theorieprojekt — laufende Workflows, die echte Aufgaben übernehmen.</p>
+    </div>
+
+    <div class="project-grid">
+      <div class="project-card reveal">
+        <div class="proj-top">
+          <h3>AI Email Lead Responder</h3>
+          <span class="proj-status live">● LIVE</span>
+        </div>
+        <div class="flow-strip">
+          <span class="flow-node">Gmail Trigger</span><span class="flow-arrow">→</span>
+          <span class="flow-node">KI-Klassifizierung</span><span class="flow-arrow">→</span>
+          <span class="flow-node">Automatische Antwort</span>
+        </div>
+        <p>Ein n8n-Workflow, der eingehende E-Mails automatisch erkennt, mittels KI-API klassifiziert (z. B. Preisanfrage, Beschwerde) und einen passenden Antwortentwurf im selben Thread erstellt.</p>
+        <a href="https://github.com/Aburdan/ai-email-lead-responder" target="_blank" rel="noopener" class="proj-link">Auf GitHub ansehen →</a>
+      </div>
+
+      <div class="project-card pending reveal">
+        <div class="proj-top">
+          <h3>AI Support Agent</h3>
+          <span class="proj-status wip">◐ IN ARBEIT</span>
+        </div>
+        <div class="flow-strip">
+          <span class="flow-node">Anfrage</span><span class="flow-arrow">→</span>
+          <span class="flow-node">KI-Agent entscheidet</span><span class="flow-arrow">→</span>
+          <span class="flow-node">Tool A / Tool B</span>
+        </div>
+        <p>Im Unterschied zum festen Workflow oben trifft hier die KI selbst die Entscheidung, welches Werkzeug für eine Anfrage genutzt wird. Aktuell in aktiver Entwicklung.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Tools &amp; Skills</span>
+      <h2>Der Werkzeugkasten</h2>
+    </div>
+
+    <div class="reveal">
+      <div class="skill-group">
+        <span class="skill-group-label">Automatisierung</span>
+        <div class="tag-row">
+          <span class="tag">n8n</span>
+          <span class="tag">Zapier</span>
+          <span class="tag">Make</span>
+          <span class="tag">Web Development Basics</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-group-label">KI &amp; Marketing</span>
+        <div class="tag-row">
+          <span class="tag">ChatGPT &amp; KI-Tools</span>
+          <span class="tag">Prompt Engineering</span>
+          <span class="tag">Marketing-Automatisierung</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:36px;">
+      <span class="skill-group-label">Sprachen</span>
+      <div class="lang-row">
+        <span class="lang-name">Arabisch</span>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:100%;"></div></div>
+        <span class="lang-level">Mutter&shy;sprache</span>
+      </div>
+      <div class="lang-row">
+        <span class="lang-name">Englisch</span>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:75%;"></div></div>
+        <span class="lang-level">Gut</span>
+      </div>
+      <div class="lang-row">
+        <span class="lang-name">Deutsch</span>
+        <div class="lang-bar-track"><div class="lang-bar-fill" style="width:55%;"></div></div>
+        <span class="lang-level">B2</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt">
+  <div class="wrap">
+    <div class="contact-box reveal">
+      <span class="eyebrow" style="text-align:center;">Kontakt</span>
+      <h2>Nächster Trigger: eine Nachricht von Ihnen</h2>
+      <p>Offen für Junior-Rollen im Bereich AI Automation — Home Office oder hybrid, deutschlandweit.</p>
+      <div class="contact-links">
+        <a href="mailto:dudud9191@gmail.com" class="btn btn-primary">E-Mail senden</a>
+        <a href="https://github.com/Aburdan" target="_blank" rel="noopener" class="btn btn-ghost">GitHub-Profil</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Mohammad Aburdan · Köln, Deutschland · 2026</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>
